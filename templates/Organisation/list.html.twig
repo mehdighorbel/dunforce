@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} [Liste] {% endblock %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+{% endblock stylesheets %}
+
+{% block body %}
+    
+    <table class="table table-bordered">
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+        {% for appParam in appParams %}
+        <tr>
+            <td>{{ appParam.name }}</td>
+            <td>{{ appParam.description }}</td>
+            <td class="text-center">
+                <a class="btn btn-sm btn-warning" href="{{ path('post_edit', { 'name' : appParam.name }) }}">Modifier</a>
+                <a class="btn btn-sm btn-danger" href="{{ path('delete', { 'name' : appParam.name }) }}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+{% endblock %}

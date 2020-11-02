@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+
+            <style>
+                .required:after {
+                    content: " *" ;
+                    color: #e40000;
+                }
+            </style>
+        {% endblock %}
+    </head>
+
+    <body class="p-5">
+        <div class="d-flex flex-row justify-content-around align-items-center mb-5">
+            <a class="btn btn-secondary" href="{{ path('list') }}">Liste</a>
+            <a class="btn btn-secondary" href="{{ path('post_edit') }}">Nouveau</a>
+        </div>
+
+        {% block body %}{% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+        {% endblock %}
+    </body>
+
+</html>
